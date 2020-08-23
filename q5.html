@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <img src="" id="image" style="height: 300px; width: auto;">
+    <h3 id="desc"></h3>
+
+    <button id="gen" onclick="thefunc()">Randomize</button>
+    <table border="1px" style="border-style: dotted;">
+        <tr>
+            <td>harry</td>
+            <td id="1">0</td>
+        </tr>
+        <tr>
+            <td>niall</td>
+            <td id="2">0</td>
+        </tr>
+        <tr>
+            <td>zayn</td>
+            <td id="3">0</td>
+        </tr>
+        <tr>
+            <td>liam</td>
+            <td id="4">0</td>
+        </tr>
+        <tr>
+            <td>louis</td>
+            <td id="5">0</td>
+        </tr>
+        
+        
+        
+        
+    </table>
+
+    <script>
+        var n = {"1": 0,"2": 0,"3": 0,"4": 0,"5": 0,}
+
+        var texts = ["harry","niall","zayn","liam","louis"]
+
+        var images = [
+            "https://www.google.com/search?q=harry+styles&rlz=1C5CHFA_enIN875IN875&sxsrf=ALeKk02xWfTT28N470oE5VoeuLSjEfyTlw:1598175011066&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj08MrugbHrAhXszzgGHUdPCPMQ_AUoAnoECCQQBA&biw=1440&bih=740#imgrc=u4PCNiGJJMV9-M.png",
+            "https://www.google.com/search?q=niall+horan&rlz=1C5CHFA_enIN875IN875&sxsrf=ALeKk02iqsF7TWMQIbifLlzn-i2PXg1_hA:1598175067578&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjQjcSJgrHrAhW94zgGHRq8DWIQ_AUoAnoECCIQBA&biw=1440&bih=740#imgrc=nbVpYiR8K1n68M",
+            "https://www.google.com/search?q=zayn+malik&rlz=1C5CHFA_enIN875IN875&sxsrf=ALeKk00nJEc_GfJ-kIWYmY9Kok26MugNDw:1598175098675&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiwma6YgrHrAhXNyzgGHXCsCN8Q_AUoAnoECCQQBA&biw=1440&bih=740#imgrc=iSgyU9iIQCoi2M",
+            "https://www.google.com/search?q=liam+payne&rlz=1C5CHFA_enIN875IN875&sxsrf=ALeKk01-aOBORGQhjmfzWJ_j8hJvUjMrHg:1598175151518&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjRu8exgrHrAhXkyjgGHel7AE0Q_AUoAnoECCAQBA&biw=1440&bih=740#imgrc=zdx678abHIFsKM",
+            "https://www.google.com/search?q=louis+tomlinson&rlz=1C5CHFA_enIN875IN875&sxsrf=ALeKk02TOMIh5NFesY1J3VmWbjicjt6hAg:1598175186385&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiRvpfCgrHrAhX7yTgGHYomDakQ_AUoAnoECCIQBA&biw=1440&bih=740#imgrc=eRhSKjg8UJJCnM"
+            ]
+
+
+        function thefunc()
+        {
+            for(var i=0;i<10;i++)
+            {
+                setTimeout(function () {
+                    var rand = Math.floor(Math.random() * 5)
+                    if (document.getElementById(String(rand + 1)).innerText == "0") {
+                        document.getElementById(String(rand + 1)).innerText = "1"
+                        n[String(rand + 1)] = 1
+                    } else {
+                        document.getElementById(String(rand + 1)).innerText = String(parseInt(document.getElementById(String(rand + 1)).innerText) + 1)
+                        n[String(rand + 1)] = parseInt(document.getElementById(String(rand + 1)).innerText) + 1
+                    }
+                    document.getElementById('desc').innerText = texts[rand]
+                    document.getElementById("image").src = images[rand]
+                }, 2000 * i); 
+                
+                
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
